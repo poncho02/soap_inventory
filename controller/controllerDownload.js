@@ -8,9 +8,10 @@ exports.download = async (req, res, next) => {
 	
 
 	  var url = process.env.url;
-	  var args = { cliente: process.env.client_id, llave: process.env.key_id };
+	  var args = { cliente: process.env.client_id , llave: process.env.key_id };
 
 	  soap.createClient(url, function(err, client) {
+	  	
 	      client.ObtenerListaArticulos(args, async function(err, result) {
 
 	          if(result.resultado && result.resultado.datos && result.resultado.datos.item && result.resultado.datos.item.length){
