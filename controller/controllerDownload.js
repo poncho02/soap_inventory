@@ -11,7 +11,7 @@ exports.download = async (req, res, next) => {
 	  var args = { cliente: process.env.client_id , llave: process.env.key_id };
 
 	  soap.createClient(url, function(err, client) {
-	  	
+
 	      client.ObtenerListaArticulos(args, async function(err, result) {
 
 	          if(result.resultado && result.resultado.datos && result.resultado.datos.item && result.resultado.datos.item.length){
@@ -27,7 +27,8 @@ exports.download = async (req, res, next) => {
 	          	return res.send(csv)
 
 	          }else{
-	          	return res.send("No hay datos")
+	          	let mensaje = result.resultado.mensaje.$value || "NO HAY DATOS"
+	          	return res.send(mensaje)
 	          }
 
 	      });
