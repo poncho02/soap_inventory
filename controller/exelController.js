@@ -46,6 +46,7 @@ exports.download = async (req, res, next) => {
 				})
 			}
 	}).catch((err) => {
+		console.log(err);
 		return res.send({
 			status: 500,
 			message: JSON.stringify(err)
@@ -88,11 +89,12 @@ async function getDataResponse(response){
 	
 	var xmlDocument = await xmlParser.parseStringPromise(response);
 
-	var items = xmlDocument["soap:Envelope"]["soap:Body"][0][ "Obtener_Productos_ListadoResponse" ][0]["Obtener_Productos_ListadoResult"];
+	var items = xmlDocument["soap:Envelope"]["soap:Body"][0][ "Obtener_Productos_ListadoResponse" ][0]["Obtener_Productos_ListadoResult"][0];
 	
-	if(items && items[0].includes("mensaje")){
+	if(items && items.includes("mensaje")){
 		return false;
 	}else{
+		items = JSON.parse(items)
 		return items.length ? items : [];
 	}
 
