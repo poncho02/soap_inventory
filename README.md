@@ -48,6 +48,10 @@ url=***********
 client_id=************
 key_id=*********
 
+USER_EXCEL=******
+PASS_EXCEL=*********
+URL_EXCEL=*********
+
 ```
 
 _Inicia paquete para correr background el api._
@@ -62,9 +66,15 @@ _Iniciar el api._
 forever start index.js
 ```
 
-_La ruta del invetario es:._
+_La ruta del invetario CT es:._
 
 ```
 http://localhost:3004/download-inventory
+```
+
+_La ruta del invetario EXEL es:._
+
+```
+http://localhost:3004/download-inventory-exel
 ```
 _donde el localhost es el dominio del servidor en caso de estar en servidor web._
