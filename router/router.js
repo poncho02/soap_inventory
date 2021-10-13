@@ -15,4 +15,8 @@ router
         exelController.download
     )
 
+    .get('/download-inventory-exel-stock',
+        exelController.getPricesAndStock
+    )
+
 module.exports = router

@@ -77,4 +77,11 @@ _La ruta del invetario EXEL es:._
 ```
 http://localhost:3004/download-inventory-exel
 ```
+
+_La ruta del stock EXEL es:._
+
+```
+http://localhost:3004/download-inventory-exel-stock?ids=XXX,XXX,XXX
+```
+_el recurso de stock, se deben de enviar los ids a consultar, máximo 100._
 _donde el localhost es el dominio del servidor en caso de estar en servidor web._
